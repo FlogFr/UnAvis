@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block page_title %}1Avis.fr: Site en construction{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block content %}
+<div class="page-header">
+	<h1>Admin Panel <small>control your switches</small></h1>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<a href="{% url 'UnAvisAdmin:flatpage_create_admin' %}"><button type="button" class="btn btn-primary">Create</button></a>
+	</div>
+	<div class="col-md-12">
+	{% for flatpage in object_list %}
+		<ul class="list-group">
+			<li class="list-group-item"><a href={% url 'UnAvisAdmin:flatpage_update_admin' flatpage.url %}>{{ flatpage.url }}</a></li>
+		</ul>
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}

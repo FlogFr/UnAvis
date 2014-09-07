@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block page_title %}1Avis.fr: Site en construction{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block content %}
+<div class="page-header">
+	<h1>Admin Panel <small>control your categories</small></h1>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+	{% for category in object_list %}
+		<ul class="list-group">
+			<li class="list-group-item"><a href="{% url 'UnAvisAdmin:category_update_admin' category.slug %}">{{ category.title }}</a><span class="badge">{{ category.activated }}</span></li>
+		</ul>
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}

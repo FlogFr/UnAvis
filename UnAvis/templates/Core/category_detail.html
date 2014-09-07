@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block page_title %}1Avis.fr: Site en construction{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block content %}
+
+<h1>{{ category.title }}</h1>
+<p>{{ category.description }}</p>
+
+<p>create your page? <a href="{% url 'UnAvisCore:page_create' category.slug %}">Create</a></p>
+
+<ul>
+	{% for page in category.page_set.all %}
+	<li>{{ page.title }}, {{ page.description }}, <a href="{{ page.get_absolute_url }}" class="btn btn-default" rel="tooltip" title="Voir"><span class="glyphicon glyphicon-eye-open"></span></a></li>
+	{% endfor %}
+</ul>
+
+{% endblock %}
+

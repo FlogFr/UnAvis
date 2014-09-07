@@ -1,0 +1,70 @@
+{% load staticfiles %}
+{% load mptt_tags %}
+{% load flatpages %}
+{% load navigation %}
+
+<nav class="navbar navbar-default" role="navigation">
+
+	<div class="container-fluid">
+
+		<div class="navbar-header">
+			<p><img src="{% static 'images/logo.png' %}" alt="logo 1avis.fr" /><a class="navbar-brand" href="{% url 'home' %}">1avis.fr</a></p>
+		</div>
+
+		<div class="collapse navbar-collapse">
+
+			<ul class="nav navbar-nav">
+				<li class="{% active request "^/$" %}"><a href="{% url 'home' %}">Home</a></li>
+			</ul>
+
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						{% if categories %}
+						{% recursetree categories %}
+						<li class="">
+							<a href="{{ node.get_absolute_url }}">{{ node.title }}</a>
+							<ul class="">
+								{{ children }}
+							</ul>
+						</li>
+						{% endrecursetree %}
+						{% endif %}
+
+						<li class="divider"></li>
+						<li class=""><a href="">Creer une categorie</a></li>
+							
+					</ul>
+				</li>
+			</ul>
+
+			{% if flatpages %}
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Découvrir<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						{% for flatpage in flatpages %}
+						<li class="{% active request PAGES_ROOT_URL|add:flatpage.url  %}">
+							<a href="{{ flatpage.url }}">{{ flatpage.title }}</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</li>
+			</ul>
+			{% endif %}
+
+			<ul class="nav navbar-nav navbar-right">
+			{% if user.is_authenticated %}
+				<a class="navbar-brand">{{ user }}</a>
+				<li><a href="{% url 'Auth:logout' %}">Logout</a></li>
+			{% else %}
+				<li><a href="{% url 'signup' %}">Sign up</a></li>
+				<li><a href="{% url 'Auth:login' %}">Login</a></li>
+			{% endif %}
+			</ul>
+
+		</div><!-- collapse -->
+
+	</div><!-- container-fluid -->
+</nav><!-- navbar-default -->

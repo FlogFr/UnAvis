@@ -1,0 +1,52 @@
+{% load staticfiles %}
+{% load navigation %}
+{% load flatpages %}
+{% get_flatpages as flatpages %}
+
+{% block footer %}
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<img src="{% static 'images/logo.png' %}" alt="logo 1avis.fr" ></img>
+					<span>1avis.fr</span>
+				</div>
+				<div class="col-md-3">
+					{% if flatpages %}
+					{% with "^/page" as PAGES_ROOT_URL %}
+					<h3>Pages</h3>
+					<ul>
+						{% for flatpage in flatpages %}
+						<li class="{% active request PAGES_ROOT_URL|add:flatpage.url  %}">
+							<a href="/page{{ flatpage.url }}">{{ flatpage.title }}</a>
+						</li>
+						{% endfor %}
+					</ul>
+					{% endwith %}
+					{% endif %}
+				</div>
+				<div class="col-md-3">
+					<h3>Shortcut</h3>
+					<ul>
+						<li>Top categorie mensuelle</li>
+						<li>Top page mensuelle</li>
+						<li>Top categorie hebdomadaire</li>
+						<li>Top page hebdomadaire</li>
+						<li>S'inscrire a la newsletter</li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<h3>Utile</h3>
+					<ul>
+						<li><a href="mailto:contact@1avis.fr">Nous contacter</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<p class="text-muted">This website is powered by Django. For all sources or question, Copyright 2014</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
