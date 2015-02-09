@@ -1,0 +1,27 @@
+{% load i18n %}
+
+<nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+        <li class="name">
+            <h1>
+                <a href="#">1Avis.fr</a>
+            </h1>
+        </li>
+    </ul>
+
+    <section class="top-bar-section">
+        <ul class="left">
+            <li><a href="{% url "home" %}">{% trans "home" %}</a></li>
+            <li><a href="#">lorem</a></li>
+            <li><a href="#">lorem</a></li>
+        </ul>
+
+        <ul class="right">
+            {% if user.is_authenticated %}
+            <li>Hello {{ user.get_full_name }}</li>
+            {% else %}
+            <li><a href="{% url "auth:login" %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </section>
+</nav>

@@ -1,0 +1,29 @@
+{% load staticfiles %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    {% compress css %}
+    <link rel="stylesheet" type="text/scss" href="{% static "scss/unavis.scss" %}" />
+    {% endcompress %}
+
+    <title>UnAvis.fr - {% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% block navigation %}
+    {% include "common/navigation.html" %}
+    {% endblock %}
+
+    <div class="row">
+        <div class="large-3 columns">
+            
+        </div>
+        <div class="large-offset-1 large-8 columns">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

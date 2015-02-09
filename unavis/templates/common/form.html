@@ -1,0 +1,35 @@
+{% load i18n %}
+
+{% if form %}
+<form {% if form.form_action %}action="{{ form.form_action }}" {% endif %}{% if form.is_multipart %}enctype="multipart/form-data" {% endif %}method="post" accept-charset="utf-8">
+    {% csrf_token %}
+
+    {% for field in form.hidden_fields %}
+    {{ field }}
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="row collapse">
+                <div class="small-3 columns">
+                    <span class="prefix">{{ field.label }}</span>
+                </div>
+                <div class="small-9 columns{% if field.errors  %} error{% endif %}">
+                    {{ field }}
+                    {% if field.errors %}
+                    <small class="error">{% for error in field.errors %}{{ error }}{% endfor %}</small>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <div class="row">
+        <div class="large-offset-9 large-2 columns">
+            <input type="submit" value="Valider" class="button round" />
+        </div>
+    </div>
+</form>
+{% endif %}

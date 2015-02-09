@@ -1,13 +1,3 @@
 *.pyc
-data/*
-lib/*
-bin/*
-include/*
-Core/*
-Admin/*
-debian/1avis/*
-debian/files
-debian/1avis.postinst.debhelper
-debian/1avis.prerm.debhelper
-debian/1avis.substvars
-debian/debhelper.log
+scripts/*
+unavis/local_settings.py
