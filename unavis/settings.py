@@ -1,9 +1,9 @@
-import os
+from os import path
 
 from django.contrib.messages import constants as messages
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = path.dirname(path.dirname(__file__))
 
 DEBUG = False
 TEMPLATE_DEBUG = False
@@ -65,6 +65,7 @@ DEFAULT_FROM_EMAIL = 'contact@1avis.fr'
 LOGIN_REDIRECT_URL = '/'
 
 STATIC_URL = '/static/'
+STATIC_ROOT = path.join(path.sep, 'var', 'django', 'unavis')
 
 WSGI_APPLICATION = 'unavis.wsgi.application'
 
