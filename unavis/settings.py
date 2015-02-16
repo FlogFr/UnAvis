@@ -114,7 +114,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console', ],
+            'handlers': ['syslog', ],
             'propagate': True,
             'level': 'INFO',
         },
