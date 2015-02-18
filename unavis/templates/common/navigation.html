@@ -11,16 +11,15 @@
 
     <section class="top-bar-section">
         <ul class="left">
-            <li><a href="{% url "home" %}">{% trans "home" %}</a></li>
-            <li><a href="#">lorem</a></li>
-            <li><a href="#">lorem</a></li>
+            <li><a href="{% url "home" %}"><span class="icon-bulb"></span>{% trans "home" %}</a></li>
+            <li><a href="{% url "category_list" %}">Categories</a></li>
         </ul>
 
         <ul class="right">
             {% if user.is_authenticated %}
-            <li>Hello {{ user.get_full_name }}</li>
+            <li><a href="#"><span class="icon-user2"></span>{{ user.get_full_name }}</a></li>
             {% else %}
-            <li><a href="{% url "auth:login" %}">Login</a></li>
+            <li><a href="{% url "auth:login" %}"><span class="icon-user2"></span>Login</a></li>
             {% endif %}
         </ul>
     </section>

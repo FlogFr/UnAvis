@@ -7,6 +7,9 @@ urlpatterns = patterns(
 
     url(r'^$',
         views.HomeView.as_view(), name="home"),
+
+    url(r'^category/list/$',
+        views.CategoryList.as_view(), name="category_list"),
     url(r'^category/create/$',
         views.CategoryCreate.as_view(), name="category_create"),
 

@@ -16,14 +16,7 @@
     {% include "common/navigation.html" %}
     {% endblock %}
 
-    <div class="row">
-        <div class="large-3 columns">
-            
-        </div>
-        <div class="large-offset-1 large-8 columns">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </div>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

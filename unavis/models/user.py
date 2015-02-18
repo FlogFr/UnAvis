@@ -1,5 +1,5 @@
 from django.contrib.auth.models import AbstractUser
-from django.db import models
+from unavis import managers
 
 
 class UserModel(AbstractUser):
@@ -10,4 +10,4 @@ class UserModel(AbstractUser):
     the the django.contrib.auth packages models to
     work with for permissions and groups.
     """
-    pass
+    objects = managers.UserModelManager()

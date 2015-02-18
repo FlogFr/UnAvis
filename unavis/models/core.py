@@ -2,8 +2,6 @@ from django.db import models
 from mptt import models as mptt_models
 from unavis.models import common as common_models
 
-from unavis import managers
-
 
 class BaseCoreModel(common_models.InvincibleModel,
                     common_models.BaseModel):
@@ -27,7 +25,7 @@ class Category(BaseCoreModel,
     parent = mptt_models.TreeForeignKey('self',
                                         related_name='children',
                                         null=True, blank=True, )
-                            
+
 
 class Page(BaseCoreModel,
            common_models.TitleModel,

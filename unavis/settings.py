@@ -95,7 +95,7 @@ LOGGING = {
     'disable_existing_loggers': True,
     'formatters': {
         'verbose': {
-            'format': '[%(asctime)s] [%(levelname)s] [%(module)s] [%(process)d] [%(thread)d] %(message)s',
+            'format': '[%(asctime)s] [%(levelname)s] [%(module)s] [%(process)d] [%(thread)d] %(message)s',  # NOQA
         },
     },
     'handlers': {
@@ -125,5 +125,5 @@ LOGGING = {
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 COMPRESS_PRECOMPILERS = (
-    ('text/scss', 'pyscss -o {outfile} {infile}'),
+    ('text/scss', 'pyscss -C -o {outfile} {infile}'),
 )
