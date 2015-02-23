@@ -7,6 +7,9 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = models.Category
         fields = ('title', 'description', 'parent', )
+        widgets = {
+            'description': forms.Textarea(),
+        }
 
     def save(self, request):
         return models.Category.objects.create(

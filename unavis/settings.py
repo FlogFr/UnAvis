@@ -19,6 +19,7 @@ ADMINS = (
 )
 
 INSTALLED_APPS = (
+    'unavis',
     'django.contrib.contenttypes',
     'django.contrib.auth',
     'django.contrib.sessions',
@@ -30,7 +31,6 @@ INSTALLED_APPS = (
     'django_extensions',
     'mptt',
     'compressor',
-    'unavis',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -95,7 +95,8 @@ LOGGING = {
     'disable_existing_loggers': True,
     'formatters': {
         'verbose': {
-            'format': '[%(asctime)s] [%(levelname)s] [%(module)s] [%(process)d] [%(thread)d] %(message)s',  # NOQA
+            'format': '[%(asctime)s] [%(levelname)s] [%(module)s]'
+            '[%(process)d] [%(thread)d] %(message)s',
         },
     },
     'handlers': {

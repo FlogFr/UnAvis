@@ -17,9 +17,10 @@
 
         <ul class="right">
             {% if user.is_authenticated %}
-            <li><a href="#"><span class="icon-user2"></span>{{ user.get_full_name }}</a></li>
+            <li><a href="{% url "users:logout" %}"><span class="icon-user2"></span>Logout {{ user.email }}</a></li>
             {% else %}
-            <li><a href="{% url "auth:login" %}"><span class="icon-user2"></span>Login</a></li>
+            <li><a href="{% url "users:login" %}"><span class="icon-user2"></span>Login</a></li>
+            <li><a href="{% url "users:signup" %}"><span class="icon-user2"></span>Signup</a></li>
             {% endif %}
         </ul>
     </section>

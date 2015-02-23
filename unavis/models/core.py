@@ -26,6 +26,9 @@ class Category(BaseCoreModel,
                                         related_name='children',
                                         null=True, blank=True, )
 
+    def __str__(self):
+        return '{!s}'.format(self.title)
+
 
 class Page(BaseCoreModel,
            common_models.TitleModel,

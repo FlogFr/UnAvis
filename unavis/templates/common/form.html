@@ -4,6 +4,12 @@
 <form {% if form.form_action %}action="{{ form.form_action }}" {% endif %}{% if form.is_multipart %}enctype="multipart/form-data" {% endif %}method="post" accept-charset="utf-8">
     {% csrf_token %}
 
+    {% if form.errors %}
+    <ul>
+        <li>{{ form.errors }}</li>
+    </ul>
+    {% endif %}
+
     {% for field in form.hidden_fields %}
     {{ field }}
     {% endfor %}
@@ -13,7 +19,10 @@
         <div class="large-12 columns">
             <div class="row collapse">
                 <div class="small-3 columns">
-                    <span class="prefix">{{ field.label }}</span>
+                    <span class="prefix">
+                        {% if field.field.required %}<strong>{{ field.label }}*</strong>
+                        {% else %}{{ field.label }}{% endif %}
+                    </span>
                 </div>
                 <div class="small-9 columns{% if field.errors  %} error{% endif %}">
                     {{ field }}

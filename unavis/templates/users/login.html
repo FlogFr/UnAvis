@@ -1,0 +1,11 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+{% include "common/form.html" %}
+
+<div class="row">
+    <div class="large-12 columns">
+        <a href="{% url "users:regen_password" %}">Regenerate password</a>
+    </div>
+</div>
+{% endblock %}

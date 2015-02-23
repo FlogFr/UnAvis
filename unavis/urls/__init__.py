@@ -13,5 +13,5 @@ urlpatterns = patterns(
     url(r'^category/create/$',
         views.CategoryCreate.as_view(), name="category_create"),
 
-    url(r'^auth/', include('django.contrib.auth.urls', namespace='auth')),
+    url(r'^users/', include('unavis.urls.users', namespace='users')),
 )

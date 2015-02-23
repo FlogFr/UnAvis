@@ -1,4 +1,4 @@
-from .user import *  # NOQA
+from .users import *  # NOQA
 from .core import *  # NOQA
 
 __all__ = [
