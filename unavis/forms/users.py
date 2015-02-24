@@ -98,6 +98,7 @@ class SignUpForm(SecureBotForm):
 
         return self.user_session
 
+
 class RegenPasswordForm(SecureBotForm):
     email = forms.EmailField(label=_('Email address'), required=True)
 
