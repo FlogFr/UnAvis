@@ -16,6 +16,21 @@
         </ul>
 
         <ul class="right">
+            <li>
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.get_full_path|slice:"3:" }}"/>
+
+                {% if LANGUAGE_CODE == 'en' %}
+                <input type="hidden" name="language" value="fr"/>
+                <input type="submit" class="button" value="FR"/>
+                {% else %}
+                <input type="hidden" name="language" value="en"/>
+                <input type="submit" class="button" value="EN"/>
+                {% endif %}
+            </form>
+            </li>
+
             {% if user.is_authenticated %}
             <li><a href="{% url "users:logout" %}"><span class="icon-user2"></span>Logout {{ user.email }}</a></li>
             {% else %}
