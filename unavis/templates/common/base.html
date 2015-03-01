@@ -16,6 +16,21 @@
     {% include "common/navigation.html" %}
     {% endblock %}
 
+    {% block messages %}
+    {% if messages %}
+    <div class="row">
+        <div class="large-12 columns">
+            <div data-alert class="alert-box">
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+                <a href="#" class="close">x</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endblock %}
+
     {% block content %}
     {% endblock %}
 </body>

@@ -32,9 +32,14 @@ class UserModel(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
 
-    objects_all = managers.UserModelManager()
-    objects = managers.UserModelValidatedManager()
+    objects = managers.UserModelManager.from_queryset(
+        managers.UserModelQuerySet
+    )()
 
     class Meta:
         swappable = 'AUTH_USER_MODEL'
         abstract = False
+
+    @property
+    def validated(self):
+        return bool(self.validated_at is not None)

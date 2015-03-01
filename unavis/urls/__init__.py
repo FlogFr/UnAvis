@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, url, include
+from django.conf import settings
 
 from unavis import views
 
@@ -15,3 +16,9 @@ urlpatterns = patterns(
 
     url(r'^users/', include('unavis.urls.users', namespace='users')),
 )
+
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += patterns(
+        '',
+        url(r'^rosetta/', include('rosetta.urls')),
+    )

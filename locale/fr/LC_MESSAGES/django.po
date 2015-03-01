@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-01 18:32+0100\n"
+"PO-Revision-Date: 2015-03-01 18:45+0100\n"
+"Last-Translator: b'  <toto@tata.com>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.7.5\n"
+
+#: unavis/forms/common.py:12
+msgid "Bot not allowed"
+msgstr "Les robots ne sont pas acceptes"
+
+#: unavis/forms/users.py:33
+msgid "Password provided doesnt match the account"
+msgstr "Le mot de passe ne correspond pas a cet email"
+
+#: unavis/forms/users.py:50
+msgid "Email address"
+msgstr "Adresse email"
+
+#: unavis/forms/users.py:57
+msgid "This email doesnt exists"
+msgstr "Cette adresse email n'existe pas"
+
+#: unavis/models/users.py:16
+msgid "email address"
+msgstr "addresse email"
+
+#: unavis/models/users.py:19
+msgid "first name"
+msgstr "prenom"
+
+#: unavis/models/users.py:20
+msgid "last name"
+msgstr "nom"
+
+#: unavis/models/users.py:21
+msgid "staff status"
+msgstr "status staff"
+
+#: unavis/models/users.py:22
+msgid "Designates whether the user can log into this admin site."
+msgstr "Cet utilisateur peut se logger sur l'administrator"
+
+#: unavis/models/users.py:25
+msgid "DateTime an account is validated"
+msgstr "Moment de validation du compte"
+
+#: unavis/models/users.py:28
+msgid "active"
+msgstr "actif"
+
+#: unavis/models/users.py:29
+msgid "Designates whether the active flag of the user. "
+msgstr "Le compte est actif ou non"
+
+#: unavis/models/users.py:31
+msgid "date joined"
+msgstr "date de"
+
+#: unavis/templates/common/navigation.html:14
+msgid "home"
+msgstr "accueil"
+
+#: unavis/views/users.py:22
+msgid "Please confirm your email,check your emails"
+msgstr "Merci de confirmer votre compte, verifiez vos emails"

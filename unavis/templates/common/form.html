@@ -4,10 +4,14 @@
 <form {% if form.form_action %}action="{{ form.form_action }}" {% endif %}{% if form.is_multipart %}enctype="multipart/form-data" {% endif %}method="post" accept-charset="utf-8">
     {% csrf_token %}
 
-    {% if form.errors %}
-    <ul>
-        <li>{{ form.errors }}</li>
-    </ul>
+    {% if form.non_field_errors %}
+    <div class="row panel callout">
+        <div class="large-12 columns">
+            {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    </div>
     {% endif %}
 
     {% for field in form.hidden_fields %}

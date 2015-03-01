@@ -20,7 +20,6 @@
             <li><a href="{% url "users:logout" %}"><span class="icon-user2"></span>Logout {{ user.email }}</a></li>
             {% else %}
             <li><a href="{% url "users:login" %}"><span class="icon-user2"></span>Login</a></li>
-            <li><a href="{% url "users:signup" %}"><span class="icon-user2"></span>Signup</a></li>
             {% endif %}
         </ul>
     </section>

@@ -37,6 +37,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
@@ -71,9 +72,12 @@ WSGI_APPLICATION = 'unavis.wsgi.application'
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Europe/Paris'
-USE_I18N = False
-USE_L10N = False
+USE_I18N = True
+USE_L10N = True
 USE_TZ = True
+LOCALE_PATHS = (
+    path.join(BASE_DIR, 'locale'),
+)
 
 LOGGING = {
     'version': 1,

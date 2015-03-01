@@ -1,15 +1,10 @@
 from django.contrib.auth.models import UserManager
+from django.db import models
+
+
+class UserModelQuerySet(models.query.QuerySet):
+    pass
 
 
 class UserModelManager(UserManager):
-    @property
-    def ROBOT(self):
-        return self.get_queryset().get(username='robot')
-
-
-class UserModelValidatedManager(UserModelManager):
-    def get_queryset(self):
-        return super(UserModelValidatedManager, self).get_queryset(
-        ).filter(
-            validated_at__isnull=False,
-        )
+    pass
